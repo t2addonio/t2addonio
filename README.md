@@ -15,6 +15,8 @@ A researcher landing here should not have to reconstruct that order from four di
 | **3. Cross-domain addressing** | Can the same extract / path-patch / store / read protocol address a residual on optical, RF, NV, CMB, EEG, telemetry, audio, and transformer buses? | [`residual-causal-toolkit`](https://github.com/t2addonio/residual-causal-toolkit) |
 | **4. Real-world signal experiments** | Same addressing idea on live RF, edge hardware, and a human-gated multi-agent lab. No autonomous writes. | [`hybrid-lab`](https://github.com/t2addonio/hybrid-lab) |
 
+> **Errata (2026-10-14):** an audit corrected several claims across these repos (random-control results at width 128, Dyck collapse counts, GPT-2 transfer strength, unbacked 16-seed and real-data results). Each repo has an `ERRATA.md`.
+
 Read them in that order. 1 is the claim. 2 is the geometry of the claim. 3 is the protocol that travels. 4 is the plant.
 
 ## One-line claim
@@ -24,7 +26,7 @@ A residual in an additive mixture can be contrastively extracted, shown load-bea
 ## How to read the code
 
 1. Start in `residual-stream-grokking` with the paper PDF and `run_discovery_*.py` / `analyze_*.py`.
-2. Then `isolate-rescue-grokking/kits/` for 16-seed isolate/rescue/phase/freeze and the additive-tributary result (`keep_only` collapse, near-additive logit deltas, disjoint fail sets).
+2. Then `isolate-rescue-grokking/kits/` for the isolate/rescue/phase/freeze kits and the additive-tributary hypothesis (`keep_only` collapse, near-additive logit deltas, disjoint fail sets). The 16-seed results reported there can't yet be checked: the training script (`worker.py`) and result files are not in that repo (see its `ERRATA.md`).
 3. Then `residual-causal-toolkit` protocol steps 1–5 (extract → filter → store/phase/beam → read) and the unified paper under `docs/papers/`.
 4. Then `hybrid-lab/rf_residual_stream` plus the Coordinator/Gate if you care how the same work is operated locally.
 
